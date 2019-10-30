@@ -2,7 +2,8 @@
 
 # SMS Movie Suggester Web App
 
-##Problem Statement
+## Problem Statement
+
 Selecting the right and perfect movie to watch based on a mixture of genre and plot movie
 watchers have in mind is not easy and this process takes a lot of time. A movie recommendation
 web-based application that recommends movies (using movies features and some algorithms)

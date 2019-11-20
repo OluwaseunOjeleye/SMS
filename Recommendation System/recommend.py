@@ -91,7 +91,7 @@ class CountVectorizer(object):
         return sim
 
     ##Find the index of titlename within title_list
-    def FindIndex(self, titlename):
+    def find_Index(self, titlename):
         found=-1
         for i in range (len(self.title_list)):
             if(self.title_list[i]==titlename):
@@ -102,7 +102,7 @@ class CountVectorizer(object):
 
     ##Similarity Matrix for a specific titlename- returns a 1-D matrix
     def get_OneSimMatrix(self, titlename):
-        index=self.FindIndex(titlename) ##find titlename index
+        index=self.find_Index(titlename) ##find titlename index
         if(index!=-1):
             sim=[]
             for i in range (len(self.CVM)):

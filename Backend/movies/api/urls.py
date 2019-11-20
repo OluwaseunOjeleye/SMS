@@ -8,6 +8,11 @@ from .adminViews import (
     MovieAdminDeleteView as adminMovieDeleteView
 )
 
+from .userViews import (
+    MovieUserListView as userMovieListView,
+    MovieUserDetailView as userMovieDetailView,
+)
+
 urlpatterns = [
     ## Admin pathS
     path('', adminMovieListView.as_view()),
@@ -15,4 +20,8 @@ urlpatterns = [
     path('create/', adminMovieCreateView.as_view()),
     path('<pk>/update/', adminMovieUpdateView.as_view()),
     path('<pk>/delete/', adminMovieDeleteView.as_view()),
+
+    ##User pathS
+    path('result/', userMovieListView.as_view()),
+    path('result/<pk>', userMovieDetailView.as_view()),
 ]

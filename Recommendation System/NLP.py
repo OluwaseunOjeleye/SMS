@@ -1,43 +1,33 @@
-from recommend_v2 import MovieRS
-from NLP import NLP
-import pandas as pd
-import time
+from rake_nltk import Rake
 
-total_movies=4000   ##total no of movies in DB
-movie_index=8   ## index of movie to compare
-no_of_rec=5 ## no of movies to recommend
+class NLP(object):
+    def __init__(self, moviename, genre, director, actors, plot):
+        self.moviename=moviename  ## movie name list
+        self.genre=genre    ##movie genre list
+        self.director=director    ## movie directors list
+        self.actors=actors     ## movieactors list
+        self.plot=plot
 
-def main():
-    dataset=pd.read_csv('dataset.csv', header=None)
+    ##get count vectorizer matrix
+    def clean_Data(self):
+        for i in range (len(self.plot)):
+            r = Rake() # Uses stopwords for english from NLTK, and all puntuation characters.
+            r.extract_keywords_from_text(self.plot[i])
 
-    print("Started: ", time.time())
-    movie=[]
-    movie_data=[]
-    for j in range (1, total_movies):
-        string=''
-        for i in range (len(dataset.iloc[0])):
-            if(i==0):       ## movie name
-                movie.append(dataset[i][j])
-            else:           ## movie other informations
-                if(i>=2 and i<=5):
-                    dataset[i][j]=dataset[i][j].replace(" ", "")    ##removing spaces between names and surnames
-                if(dataset[i][j]!=" "):
-                    string+=" "+dataset[i][j]
-        #removing unnecessary characters and converting all text to lowercase
-        string=string.replace("|", " ").replace("-","").replace(".","").lower() 
-        movie_data.append(string)
+            # getting the dictionary whith key words as keys and their scores as values
+            key_words_dict = r.get_word_degrees()
 
-    print("Completed reading data: ", time.time())
+            # assigning the key words to the new column for the corresponding movie
+            self.plot[i]=" ".join(list(key_words_dict.keys()))
 
-    M=MovieRS(movie, movie_data)
-    print("Initialization ended: ", time.time())
-
-    M.Recommend(movie[movie_index-2], no_of_rec)
-    print("Program ended: ", time.time())
-
-#main()
+    def get_Data(self):
+        data=[]
+        for i in range (len(self.moviename)):
+            data.append(self.genre[i]+" "+self.director[i]+" "+self.actors[i]+" "+self.plot[i])
+        return data
 
 
+####################################### Testing the NLP Class ############################################
 movie=['Avatar', 'Naruto Shippuden', 'Vampire Diaries', 'Ruroni Kenshi', 'Lord of the Rings', 'Legend of the Seeker', 'Jumanji']
 genre=['animation action adventure', 'animation action adventure', 'drama fantasy horror', 'animation action adventure', 'adventure drama fantasy', 'action adventure drama', 'action adventure comedy' ]
 movie_data=['On the lush alien world of Pandora live the Navi, beings who appear primitive but are highly evolved. Because the planets environment is poisonous, human/Navi hybrids, called Avatars, must link to human minds to allow for free movement on Pandora. Jake Sully (Sam Worthington), a paralyzed former Marine, becomes mobile again through one such Avatar and falls in love with a Navi woman (Zoe Saldana). As a bond with her grows, he is drawn into a battle for the survival of her world.',
@@ -52,20 +42,6 @@ director=['director1', 'director2', 'director3', 'director4', 'director5', 'dire
 actors=['actors1', 'actors2', 'actors3', 'actors4', 'actors5', 'actors6', 'actors7']
 
 
-N=NLP(movie, genre, director, actors, movie_data)
-N.clean_Data()
-
-M=MovieRS(movie, N.get_Data())
-M.Recommend('Avatar', 5)
-
-
-# R=CountVectorizer(movie, movie_data)
-# R.get_countVectorizerMatrix()
-# R.get_OneSimMatrix('Avatar')
-
-
-# Vector1=Vector([2,4,6,-2])
-# Vector2=Vector([-1,2,1,-2])
-# dot=Vector1.angleWith(Vector2)
-# print(dot)
-
+# N=NLP(movie, genre, director, actors, movie_data)
+# N.clean_Data()
+# print(N.get_Data())

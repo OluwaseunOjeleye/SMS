@@ -9,7 +9,7 @@ class Movie(models.Model):
     directors = models.TextField()
     actors = models.TextField()
     plot = models.TextField()
-    year = models.IntegerField()  #Just an integer value can be use(Next time will be limited)  
+    year = models.IntegerField()  
     genres = models.TextField()
 
     def __str__(self):

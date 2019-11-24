@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Avatar, Icon } from 'antd';    {/*Importing important components from antd UI Framework*/}
+import { List, Avatar, Icon } from 'antd';    //Importing important components from antd UI Framework
 
 
 const IconText = ({ type, text }) => (
@@ -12,8 +12,7 @@ const IconText = ({ type, text }) => (
 
 const Movies = props => {
   return (
-    {/*item layout*/}
-    <List
+    <List                   //item layout
       itemLayout="vertical"
       size="large"
       pagination={{
@@ -23,17 +22,17 @@ const Movies = props => {
         pageSize: 3,
       }}
 
-      dataSource={props.data} {/*getting data here*/}
+      dataSource={props.data} //getting data here
 
-      {/*Beginning of the footer*/}
+  //Beginning of the footer
       footer={
         <div>
           <b>SMS design</b>
         </div>
       }
-      {/*End of the footer*/}
+  //End of the footer
   
-      {/*item details*/}
+  //item details
       renderItem={item => (
         <List.Item>
           <List.Item.Meta

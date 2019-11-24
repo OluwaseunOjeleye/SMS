@@ -1,9 +1,8 @@
 import React from "react";
-import { Button, Card } from "antd";             {/*Importing important tools from antd UI Framework*/}
-import CustomForm from "../../components/Form";  {/*Importing CustomForm from Form.js file*/}
+import { Button, Card } from "antd";             //Importing important tools from antd UI Framework
+import CustomForm from "../../components/Form";  //Importing CustomForm from Form.js file
 
-
-{/*movie information data class */}
+//movie information data class 
 
 const listData = [];
   for (let i = 1; i <= 23; i++) {
@@ -22,13 +21,13 @@ class MovieDetail extends React.Component {
   render() {
     return (
       <div>
-{/*movie information titles*/}  
+//movie information titles  
         <Card title="Moviename">
           <p> Director </p>
           <p> Actors </p>
           <p> Year </p>
           <p> Plot </p>
-{/*Delete & update movie buttons*/}
+//Delete & update movie buttons
         </Card>
         <CustomForm requestType="put" articleID={null} btnText="Update"/>        
         <form>

@@ -1,8 +1,8 @@
 import React from "react"; 
-import Movies from "../../components/Movies";   {/*Importing Movies from Movies.js file*/}
-import CustomForm from "../../components/Form"; {/*Importing CustomForm from Form.js file*/}
+import Movies from "../../components/Movies";   //Importing Movies from Movies.js file
+import CustomForm from "../../components/Form"; //Importing CustomForm from Form.js file
 
-{/*movie information data class */}
+//movie information data class
 const listData = [];
   for (let i = 1; i <= 23; i++) {
     listData.push({
@@ -18,12 +18,12 @@ const listData = [];
 
 class MovieList extends React.Component {
   render() {
-{/*view the movie list*/}
+//view the movie list
     return (
       <div>
         <Movies data={listData}/>
         <br/>
-{/*add new movie info and creat the movie by adding it to the movie list*/}
+//add new movie info and creat the movie by adding it to the movie list
         <h2>Add New Movie</h2>
         <CustomForm requestType="post" articleID={null} btnText="Create"/>
       </div>

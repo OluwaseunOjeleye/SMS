@@ -1,7 +1,6 @@
-//Home page
 
 import React from 'react';
-import 'antd/dist/antd.css';  //import antd style manually
+import 'antd/dist/antd.css';  {/*import antd style manually*/}
 
 const Home = props => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Avatar, Icon } from 'antd';    //Importing important components from antd UI Framework
+import { List, Avatar, Icon } from 'antd';    /*Importing important components from antd UI Framework*/
 
 
 const IconText = ({ type, text }) => (

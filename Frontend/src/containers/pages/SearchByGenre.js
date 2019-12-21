@@ -30,7 +30,7 @@ const SearchByGenre = props => { //form of the check box
 		    <h2>Actor</h2>
 	    	<Checkbox.Group classname="actor_class" options={Actors} defaultValue={['']} onChange={onChange} />
 	    	<div style={{ marginTop: 20 }}>
-		        <Button type="primary" htmlType="submit" className="search-form-button"> {/*search for the movie*/}
+		        <Button type="primary" style={{ background: "light blue", borderColor: "white" }}> {/*search for the movie*/}
 	            	Search
 	          	</Button>
 		  	</div>

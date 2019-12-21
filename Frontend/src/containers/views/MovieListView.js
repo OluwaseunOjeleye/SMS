@@ -4,7 +4,7 @@ import CustomForm from "../../components/Form"; //Importing CustomForm from Form
 
 import  MoviesService  from  "../../http_client/MoviesService";
 
-//movie information data class
+{/*movie information data class*/}
 const listData = [];
 for (let i = 1; i <= 23; i++) {
   listData.push({
@@ -42,10 +42,10 @@ class MovieList extends React.Component {
   render() {
     return (
       <div>
-      //viewing movie list
+      {/*view the movie list*/}
         <Movies data={this.state.movies}/>
         <br/>
-      //add new movie info and creat the movie by adding it to the movie list
+      {/*add new movie info and creat the movie by adding it to the movie list*/}
         <h2>Add New Movie</h2>
         <CustomForm requestType="post" movieID={null} btnText="Create"/>
       </div>

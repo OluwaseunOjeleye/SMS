@@ -5,7 +5,8 @@ import CustomForm from "../../components/Form";  //Importing CustomForm from For
 import  MoviesService  from  "../../http_client/MoviesService";
 
 
-//movie information data class 
+{/*movie information data class*/} 
+
 const listData = [];
 for (let i = 1; i <= 23; i++) {
   listData.push({
@@ -49,7 +50,7 @@ class MovieDetail extends React.Component {
   render() {
     return (
       <div>
-        //movie information titles  
+        {/*movie information titles*/}  
         <Card title={this.state.movie.title}>
           Director: {this.state.movie.directors}<br/>
               Actors: {this.state.movie.actors}<br/>
@@ -58,7 +59,7 @@ class MovieDetail extends React.Component {
               Plot: {this.state.movie.plot}
         </Card>
 
-        //Delete & Update movie buttons
+        {/*Delete & update movie buttons*/}
         <CustomForm requestType="put" movieID={this.props.match.params.movieID} btnText="Update"/>
         <form onSubmit={this.handleDelete}>
           <Button type="danger" htmlType="submit">

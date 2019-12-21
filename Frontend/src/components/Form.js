@@ -59,7 +59,7 @@ class CustomForm extends React.Component {
 
   render() {
     return (
-    {/*Beginning of the Form*/}
+
       <div>
         <Form onSubmit={event =>this.handleFormSubmit(
             event, 
@@ -98,7 +98,6 @@ class CustomForm extends React.Component {
 
         </Form>
       </div>
-    {/*End of the Form*/}
     );
   }
 }

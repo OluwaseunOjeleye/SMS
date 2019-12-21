@@ -1,4 +1,4 @@
-//error or not found page
+/*error or not found page*/
 
 import React from 'react';
 

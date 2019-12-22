@@ -12,70 +12,62 @@ whenever they want to watch a movie.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+#### Backend:
+```
+pip install django djangorestframework django-cors-headers rake-nltk numpy scipy sklearn pandas
 
 ```
-Give examples
+#### Frontend:
 ```
+$ npm install axios react-router-dom antd
+```
+### Downloading SMS APP
+Cloning The GitHub Repository
 
+```
+git clone https://53un@bitbucket.org/53un/sms.git
+```
 ### Installing
+Once you've cloned the repository and installed all the prerequisites, you're just a few steps away from running the app.
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+Firstly, you have to install the dependencies needed to start the application, run this in the frontend folder from the command-line:
 
 ```
-until finished
+$ npm install
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+### Running the Application
+#### Running the Frontend:
+Run this in the frontend folder from the command-line:
 
 ```
-Give an example
+$ npm start
 ```
+The frontend part of the application should run on port 3000 with the development environment configuration, so in your browser just go to http://localhost:3000
 
-### And coding style tests
-
-Explain what these tests test and why
+#### Running the Backend:
+Run this in the backend folder from the command-line:
 
 ```
-Give an example
+$ python manage.py runserver
 ```
+The backend part of the application should run on port 8000 with the development environment configuration, so in your browser just go to http://localhost:8000
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+That's it! The application should be running.
 
 ## Built With
 * [Django Web Framework](https://www.fullstackpython.com/django-orm.html) - The web framework used
 * [Django REST Framework](https://www.django-rest-framework.org) - Rest API tool used
 * [React Web Framework](https://reactjs.org) - The web framework used
+* [Numpy](https://numpy.org/) and [Pandas](https://pandas.pydata.org/)- libraries used for data manipulation and analysis
+* [Scikit-learn Machine Learning Library](https://scikit-learn.org/stable) - The machine learning library used 
+* [Rake-nltk](https://pypi.org/project/rake-nltk) - library used for Natural Language Processing(NLP) keyword extraction
 
-## Contributing
-
-Please read [CONTRIBUTING.md](link to contribution page) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-For the versions available, see the [tags on this repository](git link to SMS Web App versions).
 
 ## Authors
 
@@ -85,4 +77,4 @@ For the versions available, see the [tags on this repository](git link to SMS We
 
 ## Acknowledgments
 
-* Thanks to our teacher Sedat Görmüş, PhD for giving us a project to boost our skills :)
+* Thanks to our lecturer Sedat Görmüş, PhD for giving us a project to boost our skills :)

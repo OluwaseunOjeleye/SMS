@@ -20,25 +20,31 @@ for (let i = 1; i <= 23; i++) {
   });
 }
 
+//Creating a movie service object for communicating with backend
 const  moviesService=new  MoviesService();
 
+/*React Class Component for updating, deleting
+ and displaying details of a specific movie*/
 class MovieDetail extends React.Component {
 
   state = {
     movie: {}
   };
 
-  //getting data from database
+  //getting info of a specific movie from database
   componentDidMount() {
     var self = this;
     const movieID = self.props.match.params.movieID;
     moviesService.getMovie(movieID).then(function (result) {
-    console.log(result);
-    self.setState({movie: result});
+      console.log(result);
+      self.setState({movie: result});
+    }).catch(function(error){
+      console.log(error.response);
     });
   }
 
-  //function for deleting movie from Database
+  /*function for deleting a specific movie with id, 
+  movieID from Database*/
   handleDelete=(event)=>{
     var self = this;
     const movieID = self.props.match.params.movieID;
@@ -50,7 +56,7 @@ class MovieDetail extends React.Component {
   render() {
     return (
       <div>
-        {/*movie information titles*/}  
+        {/*movie informations*/}  
         <Card title={this.state.movie.title}>
           Director: {this.state.movie.directors}<br/>
               Actors: {this.state.movie.actors}<br/>
@@ -61,6 +67,7 @@ class MovieDetail extends React.Component {
 
         {/*Delete & update movie buttons*/}
         <CustomForm requestType="put" movieID={this.props.match.params.movieID} btnText="Update"/>
+        
         <form onSubmit={this.handleDelete}>
           <Button type="danger" htmlType="submit">
             Delete

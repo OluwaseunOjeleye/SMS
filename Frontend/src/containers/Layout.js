@@ -4,6 +4,8 @@ import { Layout, Menu, Breadcrumb } from 'antd';	/*Importing important layout fr
 
 
 const { Header, Content, Footer } = Layout;
+
+//Website Custom Layout Class
 class CustomLayout extends React.Component {
   render() {
 	return (

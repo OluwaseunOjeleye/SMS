@@ -13,6 +13,7 @@ import NoMatch from './containers/pages/NoMatch';             //import NoMatch f
 
 import MovieList from './containers/views/MovieListView';     //import MovieList from MovieListView.js
 import MovieDetail from './containers/views/MovieDetailView'; //import MovieDetail from MovieDetailView.js
+import ResultDetail from './containers/views/ResultDetailView';
 
 
 {/*<img src={logo} className="App-logo" alt="logo" />*/}
@@ -32,6 +33,7 @@ class App extends React.Component {
 			    		<Route exact path="/admin" component={Login} />{" "}
 					    <Route exact path="/movies" component={MovieList} />{" "}
 					    <Route exact path="/movies/:movieID/" component={MovieDetail} />{" "}
+					    <Route exact path="/:movieID/" component={ResultDetail} />{" "}					    
 					    <Route component={NoMatch} />
 					</Switch>
 		    	</CustomLayout>

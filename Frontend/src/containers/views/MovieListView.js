@@ -18,19 +18,25 @@ for (let i = 1; i <= 23; i++) {
   });
 }
 
+//Creating a movie service object for communicating with backend
 const  moviesService=new  MoviesService();
 
+/*React Class Component for adding a new movie
+It is also for displaying all the movies in the DB */
 class MovieList extends React.Component {
-
+  //page state
   state={
     movies: []
   };
 
+  //function to fetch all movies in DB
   fetchMovies=()=> {
     var self = this;
     moviesService.getMovies().then(function (result) {
       console.log(result);
       self.setState({movies: result});
+    }).catch(function(error){
+      console.log(error.response);
     });
   }
 

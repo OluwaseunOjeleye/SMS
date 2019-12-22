@@ -3,11 +3,13 @@ import { Form, Input, Button, InputNumber } from "antd";   {/*Importing importan
 
 import  MoviesService  from  "../http_client/MoviesService";
 
-const FormItem = Form.Item;
 
+//Creating a movie service object for communicating with backend
 const  moviesService=new  MoviesService();
 
+const FormItem = Form.Item; 
 
+//Custom Form React Component
 class CustomForm extends React.Component {
   handleFormSubmit = async (event, requestType, movieID) => {
     event.preventDefault();
@@ -19,7 +21,7 @@ class CustomForm extends React.Component {
     const plot=event.target.elements.plot.value;
 
     switch (requestType){
-      //For Creating/ Adding a new movie to database
+      //For Creating and Adding a new movie to database
       case 'post':
         moviesService.createMovie(
           {
@@ -34,7 +36,9 @@ class CustomForm extends React.Component {
             console.log(result);
             alert("Movie Created!");
             }
-          );
+          ).catch(()=>{
+            alert('Movie Creation Error.');
+          });
 
       //For Updating an already existing movie in database
       case 'put':
@@ -47,8 +51,8 @@ class CustomForm extends React.Component {
           "year":  year,
           "genres":  genres
           }, movieID).then(function (result) {
-            console.log(result);
-            alert("Movie updated!");
+              console.log(result);
+              alert("Movie updated!");
             }
           ).catch(()=>{
             alert('Movie Update Error.');

@@ -71,9 +71,9 @@ That's it! The application should be running.
 
 ## Authors
 
-* **Amal Ahmed** - *Initial work* - [Add website name](webpage link)
+* **Amal Ahmed** - *Initial work* - [Github](https://github.com/amalshaf)
 * **Jamiu Oluwaseun Ojeleye** - *Initial work* - [Github](https://github.com/oluwaseunojeleye)
-* **Selen KUTANOĞLU** - *Initial work* - [Add website name](webpage link)
+* **Selen KUTANOĞLU** - *Initial work* - [Github](https://github.com/selenkutanoglu)
 
 ## Acknowledgments
 
